@@ -1,6 +1,5 @@
 # 2018 KAKAO BLIND RECRUITMENT
 def solution(dartResult):
-
     stack = [0]
 
     for index, dart in enumerate(dartResult):
@@ -9,15 +8,12 @@ def solution(dartResult):
             numDart = int(dart)
 
             if index != 0:
-
                 try:
                     leftDart = int(dartResult[index - 1])
                     stack.pop(-1)
                     stack.append(leftDart * 10 + numDart)
-
                 except ValueError:
                     stack.append(numDart)
-
             else:
                 stack.append(numDart)
 
