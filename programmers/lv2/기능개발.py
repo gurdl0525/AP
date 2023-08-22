@@ -1,11 +1,10 @@
 def solution(progresses, speeds):
-
     count = []
 
     i = 0
     while True:
 
-        progresses = [x+y for x,y in zip(progresses, speeds)]
+        progresses = [x + y for x, y in zip(progresses, speeds)]
 
         if progresses[i] >= 100:
             count.append(0)
