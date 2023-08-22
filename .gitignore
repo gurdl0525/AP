@@ -4,6 +4,8 @@ main.py
 # __init__.py
 /programmers/__init__.py
 /BOJ/__init__.py
+/BOJ/bronze1/__init__.py
+/BOJ/gold1/__init__.py
 /programmers/lv0/__init__.py
 /programmers/lv1/__init__.py
 /programmers/lv2/__init__.py
