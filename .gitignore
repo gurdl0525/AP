@@ -9,3 +9,6 @@ main.py
 /programmers/lv0/__init__.py
 /programmers/lv1/__init__.py
 /programmers/lv2/__init__.py
+
+# DS_Store
+.DS_Store
