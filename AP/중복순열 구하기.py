@@ -19,23 +19,29 @@
 
 def solution():
     N, M = map(int, input().split())
-    visited = [False] * N
 
-    dfs(0, visited, N)
+    stack = []
+    for i in range(1, N + 1):
+        stack.append(i)
+        dfs(stack, 1,  N, M)
+        stack.pop()
+
+    print(s)
 
 
-def dfs(_v: int, _visited: list, _N: int):
-    if _v == _N:
-        for i, v in enumerate(_visited):
-            if v:
-                print(i + 1, end=' ')
+def dfs(_I: list, _D: int,  _N: int, _M: int):
+    if _D == _M:
+        global s
+        s += 1
+        print(*_I, end='\n', sep=' ')
         return
-    _visited[_v] = True
-    dfs(_v + 1, _visited, _N)
-    print('\n', end='', sep='')
-    _visited[_v] = False
-    dfs(_v + 1, _visited, _N)
+
+    for i in range(1, _N + 1):
+        _I.append(i)
+        dfs(_I, _D + 1, _N, _M)
+        _I.pop()
 
 
 if __name__ == '__main__':
+    s = 0
     solution()

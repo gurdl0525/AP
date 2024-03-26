@@ -18,24 +18,29 @@ def solution():
     badook = [int(input()) for _ in range(N)]
     visited = [False] * N
 
-    print(dfs(badook, 0, visited, C,  N, 0))
+    badook.sort()
+    badook.reverse()
+
+    print(dfs(badook, 0, visited, C, N))
 
 
-def dfs(_badook: list, _v: int, _visited: list, _C: int, _N: int, _max: int):
+def dfs(_badook: list, _v: int, _visited: list, _C: int, _N: int):
     if _v == _N:
         sum = 0
         for i, v in enumerate(_visited):
             if v:
                 sum += _badook[i]
-        if _max < sum <= _C:
-            _max = sum
-        return _max
+        return sum
 
     _visited[_v] = True
-    _max = dfs(_badook, _v + 1, _visited, _C, _N, _max)
+
+    sum = dfs(_badook, _v + 1, _visited, _C, _N)
+
+    if sum is not None:
+        return sum
 
     _visited[_v] = False
-    return dfs(_badook, _v + 1, _visited, _C, _N, _max)
+    return dfs(_badook, _v + 1, _visited, _C, _N)
 
 
 if __name__ == '__main__':
