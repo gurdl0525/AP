@@ -24,4 +24,10 @@ def solution():
         result.append(queue[i])
         queue.remove(queue[i])
 
-    print(result)
+    print('<', end='')
+    print(*result, sep=', ', end='')
+    print('>')
+
+
+if __name__ == '__main__':
+    solution()

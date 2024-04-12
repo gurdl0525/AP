@@ -9,11 +9,11 @@ def solution():
 
     queue = deque(range(1, N + 1))
 
-    while True:
-        queue.popleft()
-        if len(queue) == 1:
-            break
+    queue.popleft()
+
+    while queue:
         queue.append(queue.popleft())
+        queue.popleft()
 
     print(queue.popleft())
 
