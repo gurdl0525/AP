@@ -26,18 +26,20 @@ def solution():
 
 def dfs(_badook: list, _v: int, _visited: list, _C: int, _N: int):
     if _v == _N:
-        sum = 0
+        tmp = 0
         for i, v in enumerate(_visited):
             if v:
-                sum += _badook[i]
-        return sum
+                tmp += _badook[i]
+        if tmp <= _C:
+            return tmp
+        return None
 
     _visited[_v] = True
 
-    sum = dfs(_badook, _v + 1, _visited, _C, _N)
+    tmp = dfs(_badook, _v + 1, _visited, _C, _N)
 
-    if sum is not None:
-        return sum
+    if tmp is not None:
+        return tmp
 
     _visited[_v] = False
     return dfs(_badook, _v + 1, _visited, _C, _N)
@@ -45,3 +47,27 @@ def dfs(_badook: list, _v: int, _visited: list, _C: int, _N: int):
 
 if __name__ == '__main__':
     solution()
+
+
+def DFS(i, s, tsum):
+    global m
+    if s + (sum(a) - tsum) < m:
+        return
+    if s > c:
+        return
+    if n == i:
+        if m <= s:
+            m = s
+    else:
+        DFS(i + 1, s + a[i], tsum + a[i])
+        DFS(i + 1, s, tsum + a[i])
+
+
+if __name__ == "__main__":
+    c, n = map(int, input().split())
+    a = []
+    m = 0
+    for i in range(n):
+        a.append(int(input()))
+    DFS(0, 0, 0)
+    print(m)
