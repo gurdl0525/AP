@@ -1,6 +1,4 @@
 # 동전교환
-import ctypes
-
 
 # input
 # 3
